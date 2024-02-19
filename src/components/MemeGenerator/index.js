@@ -63,6 +63,10 @@ class MemeGenerator extends Component {
     this.setState({bottomtext: event.target.value})
   }
 
+  onChangeSelect = event => {
+    this.setState({fontSize: event.target.value})
+  }
+
   onClickButton = () => {
     this.setState(prevState => ({status: !prevState.status}))
   }
@@ -79,6 +83,7 @@ class MemeGenerator extends Component {
             onChange={this.onChangeImageUrl}
             id="url"
             type="text"
+            value={imageurl}
             placeholder="Enter the Image Url"
           />
           <Label htmlFor="top">Top Text</Label>
@@ -86,16 +91,19 @@ class MemeGenerator extends Component {
             id="top"
             onChange={this.onChangeTop}
             type="text"
+            value={toptext}
             placeholder="Enter the Top Text"
           />
           <Label htmlFor="bottom">Bottom Text</Label>
           <Input
             placeholder="Enter the Bottom Text"
             id="bottom"
+            value={bottomtext}
             onChange={this.onChangeBottom}
             type="text"
           />
-          <select value={fontsize}>
+          <Label htmlFor="fontsize">Font Size</Label>
+          <select id="fontsize" value={fontsize} onChange={this.onChangeSelect}>
             {fontSizesOptionsList.map(each => (
               <option id={each.optionId} value={each.displayText}>
                 {each.displayText}

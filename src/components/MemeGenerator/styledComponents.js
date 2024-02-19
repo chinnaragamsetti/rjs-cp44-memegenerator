@@ -20,7 +20,7 @@ export const RightCont = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: ${props => props.imageUrl};
+  background-image: url(${props => props.imageUrl};);
   height: 100%;
   width: 50%;
 `
