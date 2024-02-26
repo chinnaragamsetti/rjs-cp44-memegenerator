@@ -64,7 +64,7 @@ class MemeGenerator extends Component {
   }
 
   onChangeSelect = event => {
-    this.setState({fontSize: event.target.value})
+    this.setState({fontsize: event.target.value})
   }
 
   onClickButton = () => {
@@ -75,8 +75,8 @@ class MemeGenerator extends Component {
     const {imageurl, toptext, bottomtext, fontsize, status} = this.state
 
     return (
-      <MainCont>
-        <LeftCont>
+      <MainCont data-testid="meme">
+        <LeftCont onSubmit={this.onClickButton}>
           <MainHeading>Meme Generator</MainHeading>
           <Label htmlFor="url">Image URL</Label>
           <Input
@@ -105,12 +105,16 @@ class MemeGenerator extends Component {
           <Label htmlFor="fontsize">Font Size</Label>
           <select id="fontsize" value={fontsize} onChange={this.onChangeSelect}>
             {fontSizesOptionsList.map(each => (
-              <option id={each.optionId} value={each.displayText}>
+              <option key={each.optionId} value={each.displayText}>
                 {each.displayText}
               </option>
             ))}
           </select>
-          <CustomButton type="button" onClick={this.onClickButton}>
+          <CustomButton
+            type="submit"
+            data-testid="meme"
+            onClick={this.onClickButton}
+          >
             Generate
           </CustomButton>
         </LeftCont>
