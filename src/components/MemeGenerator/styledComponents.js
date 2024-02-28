@@ -13,7 +13,6 @@ export const MainCont = styled.div`
 export const LeftCont = styled.div`
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
 `
 
