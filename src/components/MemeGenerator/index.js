@@ -44,27 +44,30 @@ const fontSizesOptionsList = [
 
 class MemeGenerator extends Component {
   state = {
-    imageurl: '',
-    toptext: '',
-    bottomtext: '',
-    fontsize: '',
+    imageUrl: '',
+    topText: '',
+    bottomText: '',
+    fontsize: fontSizesOptionsList[0].optionId,
     status: false,
   }
 
   onChangeImageUrl = event => {
-    this.setState({imageurl: event.target.value})
+    this.setState({imageUrl: event.target.value})
   }
 
   onChangeTop = event => {
-    this.setState({toptext: event.target.value})
+    this.setState({topText: event.target.value})
   }
 
   onChangeBottom = event => {
-    this.setState({bottomtext: event.target.value})
+    this.setState({bottomText: event.target.value})
   }
 
   onChangeSelect = event => {
+    // const {fontsize} = this.state
+    // console.log(fontsize)
     this.setState({fontsize: event.target.value})
+    //  console.log(event.target.value)
   }
 
   onClickButton = () => {
@@ -72,18 +75,18 @@ class MemeGenerator extends Component {
   }
 
   render() {
-    const {imageurl, toptext, bottomtext, fontsize, status} = this.state
+    const {imageUrl, topText, bottomText, fontsize, status} = this.state
 
     return (
       <MainCont data-testid="meme">
-        <LeftCont onSubmit={this.onClickButton}>
+        <LeftCont>
           <MainHeading>Meme Generator</MainHeading>
           <Label htmlFor="url">Image URL</Label>
           <Input
             onChange={this.onChangeImageUrl}
             id="url"
             type="text"
-            value={imageurl}
+            value={imageUrl}
             placeholder="Enter the Image Url"
           />
           <Label htmlFor="top">Top Text</Label>
@@ -91,37 +94,37 @@ class MemeGenerator extends Component {
             id="top"
             onChange={this.onChangeTop}
             type="text"
-            value={toptext}
+            value={topText}
             placeholder="Enter the Top Text"
           />
           <Label htmlFor="bottom">Bottom Text</Label>
           <Input
             placeholder="Enter the Bottom Text"
             id="bottom"
-            value={bottomtext}
+            value={bottomText}
             onChange={this.onChangeBottom}
             type="text"
           />
           <Label htmlFor="fontsize">Font Size</Label>
           <select id="fontsize" value={fontsize} onChange={this.onChangeSelect}>
             {fontSizesOptionsList.map(each => (
-              <option key={each.optionId} value={each.displayText}>
+              <option key={each.optionId} value={each.optionId}>
                 {each.displayText}
               </option>
             ))}
           </select>
           <CustomButton
-            type="submit"
             data-testid="meme"
+            type="button"
             onClick={this.onClickButton}
           >
             Generate
           </CustomButton>
         </LeftCont>
         {status && (
-          <RightCont imageUrl={imageurl}>
-            <CustomText fontSize={fontsize}>{toptext}</CustomText>
-            <CustomText fontSize={fontsize}>{bottomtext}</CustomText>
+          <RightCont imageUrl={imageUrl} data-testid="meme">
+            <CustomText fontSize={fontsize}>{topText}</CustomText>
+            <CustomText fontSize={fontsize}>{bottomText}</CustomText>
           </RightCont>
         )}
       </MainCont>

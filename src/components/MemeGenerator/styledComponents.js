@@ -10,7 +10,7 @@ export const MainCont = styled.div`
   padding: 30px;
   padding: 50px;
 `
-export const LeftCont = styled.div`
+export const LeftCont = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -29,7 +29,7 @@ export const RightCont = styled.div`
   background-size: cover;
 `
 export const CustomText = styled.h1`
-  font-size: ${props => props.fontsize};
+  font-size: ${props => props.fontSize};
   color: #ffffff;
 `
 
