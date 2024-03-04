@@ -19,7 +19,6 @@ export const LeftCont = styled.form`
 export const RightCont = styled.div`
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
   background-image: url(${props => props.imageUrl});
   width: 50%;
@@ -28,8 +27,8 @@ export const RightCont = styled.div`
   margin-left: 10px;
   background-size: cover;
 `
-export const CustomText = styled.h1`
-  font-size: ${props => props.fontSize};
+export const CustomText = styled.p`
+  font-size: ${props => props.fontSize}px;
   color: #ffffff;
 `
 
