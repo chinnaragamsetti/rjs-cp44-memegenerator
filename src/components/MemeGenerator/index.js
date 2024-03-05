@@ -113,11 +113,7 @@ class MemeGenerator extends Component {
               </option>
             ))}
           </select>
-          <CustomButton
-            data-testid="meme"
-            type="button"
-            onClick={this.onClickButton}
-          >
+          <CustomButton type="button" onClick={this.onClickButton}>
             Generate
           </CustomButton>
         </LeftCont>
